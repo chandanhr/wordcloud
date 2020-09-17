@@ -1,0 +1,1170 @@
+﻿Movie Recommender System
+
+
+
+
+
+Chapter 1
+
+
+1. Introduction
+
+
+1.1 Movie Recommender System
+
+A recommendation system provides suggestions to the users through a filtering process that is based on user preferences and browsing history. The information about the user is taken as an input. The information is taken from the input that is in the form of browsing data. This information reflects the prior usage of the product as well as the assigned ratings. A recommendation system is a platform that provides its users with various contents based on their preferences and likings. A recommendation system takes the information about the user as an input. The recommendation system is an implementation of the machine learning algorithms. [5]
+
+In this project, we build a simple Movie recommender system with plain python and its libraries.We use a Movielens online dataset and create the dataframes. Finding Pearson Correlation we will be able to depict the list of recommended movies and histograms also.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+Fig.1: Flowchart of Movie Recommender System
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN
+1
+
+
+Movie Recommender System
+
+
+
+
+
+
+
+
+
+
+1.2 Problem Statement
+
+
+
+
+The Movie Recommender System shall provide the list of movies that are predicted by previous interest of the user. It has a search box where movie name is entered and once submit button is clicked, the list of recommended movies along with histograms are shown. The list of movies should be universal to all users.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN
+2
+
+
+Movie Recommender System
+
+
+
+
+
+
+
+
+1.3 Machine Learning
+
+
+
+Machine learning (ML) is the study of computer algorithms that improve automatically through experience. It is seen as a subset of artificial intelligence. Machine learning algorithms build a mathematical model based on sample data, known as "training data", in order to make predictions or decisions without being explicitly programmed to do so. Machine learning algorithms are used in a wide variety of applications where it is difficult or infeasible to develop conventional algorithms to perform the needed tasks. Machine learning involves computers discovering how they can perform tasks without being explicitly programmed to do so. [5]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Fig.2: Hierarchy of Machine Learning
+
+
+
+
+
+
+
+
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN	3
+
+Movie Recommender System
+
+
+
+
+
+
+1.4 Anaconda Navigator
+
+
+
+Anaconda is a free and open-source distribution of the Python and R programming languages for scientific computing (data science, machine learning applications, large-scale data processing, predictive analytics, etc.), that aims to simplify package management and deployment. It is developed and maintained by Anaconda, Inc. The distribution includes data- science packages suitable for Windows, Linux, and macOS. Anaconda Navigator is a desktop graphical user interface (GUI) included in Anaconda distribution that allows users to launch applications and manage conda packages, environments and channels without using command-line commands.
+
+Navigator can search for packages on Anaconda Cloud or in a local Anaconda Repository, install them in an environment, run the packages and update them. [5]
+
+
+
+1.5 Packages / Libraries
+
+
+There are variety of Packages/libraries in Python. Some of the important Python Packages/Libraries for Machine Learning are [5]
+
+
+    • TensorFlow
+    • Pytorch
+    • SciPy
+    • Keras
+    • NumPy
+
+    • Seaborn
+    • Scikit-Learn
+
+    • Pandas
+    • Natural Language Toolkit (NLTK)
+    • Matplotlib
+
+
+Basically ,we are using  4 Packages/Libraries for developing this project. They are,
+
+
+    • NUMPY(Numerical Python)
+
+NumPy is a library for the Python programming language, adding support for large, multi-
+
+dimensional arrays and matrices, along with a large collection of high-level mathematical functions
+
+to operate on these arrays. [5]
+
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN
+4
+
+
+Movie Recommender System
+
+
+
+
+
+
+
+    • PANDAS
+
+Pandas is mainly used for machine learning in form of dataframes. Pandas allow importing data of various file formats such as csv, excel etc. Pandas allow various data manipulation operations such as groupby, join, merge, melt, concatenation as well as data cleaning features such as filling, replacing or imputing null values. [5]
+
+
+
+    • MATPLOTLIB
+
+Matplotlib is a plotting library for the Python programming language and its numerical mathematics extension NumPy. It provides an object-oriented API for embedding plots into applications using general-purpose GUI toolkits. [5]
+
+
+
+    • SEABORN
+
+Seaborn is a library for making statistical graphics in Python. It is built on top of matplotlib and closely integrated with pandas data structures. Seaborn aims to make visualization a central part of exploring and understanding data. Its dataset-oriented plotting functions operate on dataframes and arrays containing whole datasets and internally perform the necessary semantic mapping and statistical aggregation to produce informative plots. [5]
+
+
+
+
+
+1.6 Organization of the report
+
+Chapter 2 describes System analysis where the Proposed system and System Requirement Specification are given. Chapter 3 describes Data sets used in the project and different modules used in system and their algorithm are also explained..Chapter 4 presents the implementation details. Chapter 5 describes Testing. User manual is presented in Chapter 6. Conclusions are drawn in Chapter7.
+
+
+
+
+
+
+
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN
+5
+
+
+Movie Recommender System
+
+
+
+
+
+Chapter 2
+
+System Analysis
+
+
+
+2.1 Proposed System
+
+
+A new system provides features like:
+
+    • Time efficiency to show list of movies.
+
+    • User can give the movie name he watched to the system.
+
+    • System provides all the movies recommended to the user as a list.
+
+    • The system also provides the histograms to compare the datasets.
+
+
+
+
+
+
+2.2 System Requirements Specification
+
+
+
+
+2.2.1 Functional Requirements
+
+
+
+    1. The system shall be able to receive the movie name of user’s interest as input.
+
+    2. The system shall be able to find the correlation between two data sets.
+
+    3. The system shall produce the list of recommended movies of respective interest of the output.
+
+    4. The system shall show the histograms of the datasets.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN
+6
+
+
+Movie Recommender System
+
+
+
+
+
+
+
+
+2.2.2 Non-Functional Requirements
+
+
+
+Hardware requirements
+
+
+
+Specification
+Requirement
+
+
+Processor (CPU)
+Intel i5 processor or above
+Primary Memory(RAM)
+4 GB or more
+Secondary Storage(ROM)
+500 GB or more Hard Disk Drive
+
+(HDD)
+Graphics
+2 GB or more
+
+
+
+
+
+Software requirements
+
+
+Operating system
+Windows 7 or higher
+
+
+
+
+Platform
+Anaconda Navigator ( Spyder)
+
+
+
+
+Programming language
+Python 3.7
+
+
+
+
+Field
+Machine Learning
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN
+7
+
+
+Movie Recommender System
+
+
+
+
+
+Chapter 3
+
+
+Design
+
+
+
+
+
+3.1 Dataset
+
+
+
+
+Movie Recommender System uses MOVIELENS online dataset which is depicted by IMDB team. This is divided into 2 subset dataset. Generally datasets are of (.csv) format. [8]
+The dataset used here is of size 2MB and it is updated at regular intervals of time based on user data. [8]
+
+
+3.1.1 u.data (users data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+User_id
+
+
+Item_id
+
+
+ratings
+
+
+timespan
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3.1.2 Movie_Id_Titles.data(movies data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+Item_id
+
+
+Movie_title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN
+8
+
+
+Movie Recommender System
+
+
+
+
+
+3.2 Algorithms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Fig.3: Different Algorithms in Machine Learning
+In this Project we are using,
+
+Collaborative Filtering
+
+The standard method of Collaborative Filtering is known as Nearest Neighborhood
+
+algorithm. Collaborative Filtering, on the other hand, doesn’t need anything else except users’ historical preference on a set of items. Because it’s based on historical data, the core assumption here is that the users who have agreed in the past tend to also agree in the future. [6]
+
+
+
+
+
+
+
+
+Pearson Correlation
+
+
+In statistics, the Pearson correlation coefficient or the bivariate correlation,is a statistic that measures linear correlation between two variables X and Y. It has a value between +1 and −1, where 1 is total positive linear correlation, 0 is no linear correlation, and −1 is total negative linear correlation(that the value lies between -1 and 1).It is widely used in the sciences. [6]
+
+
+
+
+
+
+
+
+
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN
+9
+
+Movie Recommender System
+
+
+
+
+
+Chapter 4
+
+Implementation
+
+
+
+
+
+System Analysis is the process of understanding the problem and its domain. The main objectives of analysis is to capture a complete, ambiguous and consistent picture of the requirements of the system and what the system must do to satisfy the user needs and requirements. The design must implement all the explicit requirements contained in the analysis mode, and it must accommodate all of the implicit requirements desired by the user. [5]
+
+
+
+
+
+
+
+MRS.ipynb [1] [2] [6] [7]
+
+
+
+
+
+
+import numpy as np
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+import seaborn as sns
+
+sns.set_style('white')
+
+%matplotlib inline
+
+
+column_names = ['user_id', 'item_id', 'rating', 'timestamp'] df = pd.read_csv('u.data', sep='\t', names=column_names) df.head()
+
+movie_titles = pd.read_csv("Movie_Id_Titles")
+
+movie_titles.head()
+
+df = pd.merge(df,movie_titles,on='item_id')
+
+df.head()
+
+df.groupby('title')['rating'].mean().sort_values(ascending=False).head()
+
+
+DEPARTMENT OF ISE, MCE, HASSAN
+10
+
+
+Movie Recommender System
+
+
+
+
+
+df.groupby('title')['rating'].count().sort_values(ascending=False).head()
+
+ratings = pd.DataFrame(df.groupby('title')['rating'].mean())
+
+ratings.head()
+
+ratings['num of ratings'] = pd.DataFrame(df.groupby('title')['rating'].count())
+
+ratings.head()
+
+plt.figure(figsize=(10,4))
+
+ratings['num of ratings'].hist(bins=70)
+
+plt.figure(figsize=(10,4))
+
+ratings['rating'].hist(bins=70)
+
+sns.jointplot(x='rating',y='num of ratings',data=ratings,alpha=0.5)
+
+moviemat = df.pivot_table(index='user_id',columns='title',values='rating')
+
+moviemat.head()
+
+ratings.sort_values('num of ratings',ascending=False).head(10)
+
+ratings.head()
+
+starwars_user_ratings = moviemat['Star Wars (1997)']
+
+#liarliar_user_ratings = moviemat['Liar Liar (1997)']
+
+starwars_user_ratings.head()
+
+similar_to_starwars = moviemat.corrwith(starwars_user_ratings)
+
+#similar_to_liarliar = moviemat.corrwith(liarliar_user_ratings)
+
+corr_starwars = pd.DataFrame(similar_to_starwars,columns=['Correlation'])
+
+corr_starwars.dropna(inplace=True)
+
+corr_starwars.head()
+
+corr_starwars.sort_values('Correlation',ascending=False).head(10)
+
+corr_starwars = corr_starwars.join(ratings['num of ratings'])
+
+corr_starwars.head()
+
+corr_starwars[corr_starwars['numof
+
+ratings']>100].sort_values('Correlation',ascending=False).head()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN
+11
+
+
+Movie Recommender System
+
+
+
+
+
+Chapter 5
+
+Testing
+
+
+
+
+
+
+It is an important phase of a successful system. After coding the entire program of the system, test plans should be developed and executed on a given set of test data. The output should match the expected results. [4][5]
+
+
+Unit Testing
+
+
+Unit testing is a software development process in which the smallest test table parts of an application, called units, are individually and independently scrutinized for proper operation. Unit testing is often automated but it can also be done manually. [4][5]
+
+
+Integration Testing
+
+
+Integration testing (sometimes called integration and testing, abbreviated IT) is the phase in software testing in which individual software modules are combined and tested as a group. It occurs after unit testing and before validation testing. [4][5]
+
+
+
+
+System Testing
+
+
+System testing of software or hardware is testing conducted on a complete, integrated system to evaluate the system’s compliance with it specified requirements. System testing fall within the scope of back-box testing and as such, should require no knowledge of the inner design of the code or logic. [4][5]
+
+
+
+
+
+
+
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN
+12
+
+
+Movie Recommender System
+
+
+
+
+
+5.1 Test Cases and Test Results
+
+Each module is tested for correctness using test data. After all modules are developed the entire application has been tested with sample data and has been verified to the test data and has been working without any errors. Details about the test cases is given below.
+
+
+
+
+
+             
+
+Test ID
+
+Test Scenario
+
+Expected Output
+
+Type of Testing
+
+1
+
+Include all packages / libraries
+
+Import them Successfully without
+errors
+
+Unit Testing
+
+2
+
+Movies with less than 100 number of ratings
+
+Discard them
+
+Unit Testing
+
+3
+
+Input only movie name present  in the dataset
+
+Successful and proceed
+
+Integration Testing
+
+4
+
+Input other attributes  in the dataset
+
+Handle the exception with suitable error message
+
+Integration Testing
+
+5
+
+Case sensitive input
+
+Consider and proceed
+
+Integration Testing
+
+6
+
+Given a valid movie name and submit
+
+Successful and provide list of recommended movies
+
+System Testing
+
+7
+
+Given an invalid movie name and submit
+
+Unsuccessful and error message to be shown back to user
+
+System Testing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN
+13
+
+
+Movie Recommender System
+
+
+
+
+
+Chapter 6
+
+User Manual
+
+
+
+
+
+
+6.1 Snapshots
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Fig.4: List of Recommended movies for Star Wars movie
+
+
+The above figure represents the list of movies that are recommended to users who have chosen Star Wars as the input movie. The corresponding Correlation value of movies is also shown. More the correlation value, more it is recommended.   
+ 
+
+
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN
+14
+
+
+
+
+							                                Movie Recommender System				
+
+             (X axis: Num of ratings)
+
+	(Y axis: Number of (Num of Ratings) )
+
+
+Fig.5: Number of ratings Distribution
+
+	The above figure depicts the number of ratings to the movies distributed in the user dataset. The point of view in this histogram is Number of ratings.
+
+
+
+	
+(X axis: 1 unit = 0.5 rating)
+	(Y axis: 1 unit = 20 no of ratings)
+
+Fig.6: Rating Distribution
+
+	The above figure depicts the ratings distributions to the movies in the dataset. The point of view in this histogram is rating (1-5).
+
+
+           DEPARTMENT OF ISE, MCE, HASSAN                                                                                                                15
+Movie Recommender System
+
+
+
+
+
+
+
+                                                  
+
+
+
+ 
+
+	 
+	(X axis: 1 unit = 1.0 rating)
+	(Y axis: 1 unit = 100 no of ratings)
+
+
+Fig.7: Histogram of Number of ratings v/s Ratings
+
+
+The above figure depicts the value of rating (1-5) and the number of ratings for that value of rating.
+It is a Joint Plot which shows Scattered Plot at the centre and histogram at top and right side of the graph as shown in Fig.5 and Fig.6.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN								        16
+Movie Recommender System
+
+
+
+
+
+Chapter 7
+
+
+
+Conclusion
+
+This Movie Recommender System is a subsystem and is depicted based on our view of the problem. There are many more implementations of the same. But this implementation is easy and efficient also. This is depicted with a static dataset. Recommendations are very important because it reduces the user’s effort in searching movies of his interest. The system automatically recognizes the movies of interest and generates list of movies of same kind.
+
+
+
+
+
+
+
+Future Scope
+
+
+
+The system may include real -time implementation in any application with real –time dataset. The movies can be recommended with more key attributes and filters. The system can be made more accurate with more specific comparisons of movie attributes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN
+17
+
+
+Movie Recommender System
+
+
+
+
+
+References
+
+
+
+
+
+
+    1. “Understanding Machine Learning: From Theory to Algorithms” by “Shai Shalev –
+Sheartz and Shai Ben – David”.
+
+    2. “Building Machine Learning Systems with Python” by “Willi Richert and Luis Pedro Coelho”.
+
+    3. Ian Somerville – “Software Engineering”, 9th edition, Pearson Education.
+
+    4. Paul C Jorgensen: “Software Testing”, A Craftsman’s Approach, 4th edition, Auerbach Publications, 2014.
+
+    5. www.wikipedia.com
+
+    6. www.geeksforgeeks.com
+
+    7. www.youtube.com
+
+    8. www.grouplens.org/dataset
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DEPARTMENT OF ISE, MCE, HASSAN
+18
+
